@@ -1,0 +1,265 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 610" width="100%" height="100%">
+  <defs>
+    <!-- Fonts -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap');
+      .text-inter { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+      .text-mono { font-family: 'Fira Code', monospace; }
+      .pill-hover { transition: transform 0.3s ease, filter 0.3s ease; cursor: pointer; }
+      .pill-hover:hover { transform: scale(1.08); filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.15)); }
+      .icon-hover { transition: transform 0.2s, fill 0.2s; cursor: pointer; }
+      .icon-hover:hover { transform: scale(1.15); fill: #2563EB; }
+    </style>
+
+    <!-- Photo Clip Path -->
+    <clipPath id="photo-clip">
+      <rect x="20" y="50" width="360" height="380" rx="20" />
+    </clipPath>
+
+    <!-- Filters & Glows -->
+    <filter id="blur-bg" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="20" />
+    </filter>
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-accent" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F1F5F9" />
+    </linearGradient>
+
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB">
+        <animate attributeName="stop-color" values="#2563EB;#06B6D4;#10B981;#2563EB" dur="10s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#06B6D4">
+        <animate attributeName="stop-color" values="#06B6D4;#10B981;#2563EB;#06B6D4" dur="10s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <linearGradient id="ascii-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+
+    <linearGradient id="border-shimmer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F2042" stop-opacity="0.03" />
+      <stop offset="30%" stop-color="#2563EB" stop-opacity="0.2">
+        <animate attributeName="offset" values="0;1;0" dur="6s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.03" />
+    </linearGradient>
+
+    <!-- Background Glows -->
+    <radialGradient id="radial-glow-1" cx="20%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="radial-glow-2" cx="80%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Base Canvas & Background -->
+  <rect width="1180" height="610" rx="24" fill="url(#bg-grad)" />
+  <rect width="1180" height="610" rx="24" fill="url(#radial-glow-1)" />
+  <rect width="1180" height="610" rx="24" fill="url(#radial-glow-2)">
+    <animate attributeName="opacity" values="0.6;0.9;0.6" dur="8s" repeatCount="indefinite" />
+  </rect>
+
+  <!-- Ambient Floating Particles -->
+  <g opacity="0.4">
+    <circle cx="150" cy="450" r="2.5" fill="#2563EB">
+      <animate attributeName="transform" type="translate" values="0,0; 10,-30; 0,0" dur="6s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="450" cy="150" r="3" fill="#06B6D4">
+      <animate attributeName="transform" type="translate" values="0,0; -15,-20; 0,0" dur="8s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="850" cy="100" r="2" fill="#10B981">
+      <animate attributeName="transform" type="translate" values="0,0; 20,25; 0,0" dur="7s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="1050" cy="500" r="2.5" fill="#2563EB">
+      <animate attributeName="transform" type="translate" values="0,0; -10,-40; 0,0" dur="5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Grid Overlay -->
+  <path d="M0 50 H1180 M0 100 H1180 M0 150 H1180 M0 200 H1180 M0 250 H1180 M0 300 H1180 M0 350 H1180 M0 400 H1180 M0 450 H1180 M0 500 H1180 M0 550 H1180" stroke="#000000" stroke-opacity="0.015" stroke-width="1" />
+  <path d="M100 0 V610 M200 0 V610 M300 0 V610 M400 0 V610 M500 0 V610 M600 0 V610 M700 0 V610 M800 0 V610 M900 0 V610 M1000 0 V610 M1100 0 V610" stroke="#000000" stroke-opacity="0.015" stroke-width="1" />
+
+  <!-- Outer Shimmer Border -->
+  <rect x="1" y="1" width="1178" height="608" rx="23" fill="none" stroke="url(#border-shimmer)" stroke-width="1.5" />
+
+  <!-- ==================== LEFT SIDE: PHOTO SCANNER ==================== -->
+  <g transform="translate(60, 60)">
+    <!-- Glow behind the image -->
+    <rect x="20" y="50" width="360" height="380" fill="url(#ascii-grad)" opacity="0.1" filter="url(#glow-accent)" rx="20" />
+    
+    <!-- User Photo inserted here -->
+    <image x="20" y="50" width="360" height="380" href="me.jpeg" preserveAspectRatio="xMidYMid slice" clip-path="url(#photo-clip)" />
+    
+    <!-- Subtle colored tint over the photo to match theme -->
+    <rect x="20" y="50" width="360" height="380" fill="url(#ascii-grad)" opacity="0.1" clip-path="url(#photo-clip)" style="mix-blend-mode: overlay;" />
+
+    <!-- Scanline Sweep Anim -->
+    <rect x="20" y="50" width="360" height="2" fill="#2563EB" opacity="0.5" filter="url(#glow-cyan)" clip-path="url(#photo-clip)">
+      <animate attributeName="y" values="50;428;50" dur="4s" repeatCount="indefinite" />
+    </rect>
+    
+    <!-- Border Frame -->
+    <rect x="20" y="50" width="360" height="380" fill="none" stroke="url(#ascii-grad)" stroke-width="1.5" rx="20" opacity="0.6" />
+    
+    <text x="200" y="450" fill="#475569" opacity="0.8" class="text-mono" font-size="10" font-weight="bold" text-anchor="middle" letter-spacing="1">USER_AUTH // LIGHT_MODE_INIT</text>
+  </g>
+
+  <!-- ==================== RIGHT SIDE: TERMINAL WINDOW ==================== -->
+  <g transform="translate(480, 50)">
+    <!-- Terminal Box Glassmorphism -->
+    <rect width="640" height="510" rx="16" fill="#F8FAFC" fill-opacity="0.9" stroke="rgba(15,23,42,0.08)" stroke-width="1.5" />
+    <rect x="0.75" y="0.75" width="638.5" height="508.5" rx="15.25" fill="none" stroke="url(#border-shimmer)" stroke-width="1" />
+
+    <!-- Terminal Header -->
+    <g transform="translate(20, 20)">
+      <circle cx="10" cy="10" r="6" fill="#EF4444" />
+      <circle cx="30" cy="10" r="6" fill="#F59E0B" />
+      <circle cx="50" cy="10" r="6" fill="#10B981" />
+      <text x="320" y="14" fill="#475569" font-size="11" class="text-mono" text-anchor="middle" letter-spacing="1">bash - student@ruthuvik.sh</text>
+    </g>
+
+    <line x1="0" y1="50" x2="640" y2="50" stroke="rgba(15,23,42,0.08)" stroke-width="1" />
+
+    <!-- Terminal Content Area -->
+    <g transform="translate(30, 85)">
+      <text x="0" y="20" fill="#475569" class="text-mono" font-size="15">$ whoami</text>
+      
+      <text x="0" y="55" fill="#0F172A" class="text-inter" font-size="30" font-weight="800">
+        Ruthuvik Santhosh Gowda
+      </text>
+
+      <!-- Typing Accent Subtitle -->
+      <g transform="translate(0, 90)">
+        <text x="0" y="0" fill="#2563EB" class="text-mono" font-size="18" font-weight="600">
+          <tspan>
+            <animate attributeName="opacity" values="1;1;0;0;0;0;0" dur="9s" repeatCount="indefinite" />
+            Undergraduate Student
+          </tspan>
+          <tspan dx="-210">
+            <animate attributeName="opacity" values="0;0;1;1;0;0;0" dur="9s" repeatCount="indefinite" />
+            Full Stack Developer
+          </tspan>
+          <tspan dx="-215">
+            <animate attributeName="opacity" values="0;0;0;0;1;1;0" dur="9s" repeatCount="indefinite" />
+            Open Source Enthusiast
+          </tspan>
+        </text>
+        <rect x="255" y="-16" width="8" height="18" fill="#10B981">
+          <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite" />
+          <animate attributeName="x" values="215;215;215;215;220;220;215" dur="9s" repeatCount="indefinite" />
+        </rect>
+      </g>
+
+      <!-- Detailed Info (Sequential Reveal) -->
+      <g transform="translate(0, 130)" class="text-inter" font-size="14" fill="#475569">
+        <g opacity="0">
+          <animate attributeName="opacity" begin="1.5s" dur="0.5s" fill="freeze" to="1" />
+          <text x="0" y="10" font-weight="600" fill="#0F172A">📍 Location:</text>
+          <text x="120" y="10">Singapore</text>
+        </g>
+        <g opacity="0">
+          <animate attributeName="opacity" begin="1.9s" dur="0.5s" fill="freeze" to="1" />
+          <text x="0" y="35" font-weight="600" fill="#0F172A">🎓 Education:</text>
+          <text x="120" y="35">IBDP (40 Points)</text>
+        </g>
+        <g opacity="0">
+          <animate attributeName="opacity" begin="2.3s" dur="0.5s" fill="freeze" to="1" />
+          <text x="0" y="60" font-weight="600" fill="#0F172A">🚀 Current Focus:</text>
+          <text x="120" y="60" fill="#06B6D4">Software Engineering • Distributed Systems</text>
+        </g>
+      </g>
+
+      <!-- Skills Section -->
+      <g transform="translate(0, 240)">
+        <text x="0" y="0" fill="#0F172A" class="text-inter" font-size="15" font-weight="700" letter-spacing="0.5">TECH STACK</text>
+        
+        <g transform="translate(0, 15)">
+          <g transform="translate(0,0)" class="pill-hover">
+            <rect width="70" height="28" rx="14" fill="#FFFFFF" stroke="rgba(37, 99, 235, 0.15)" stroke-width="1" />
+            <text x="35" y="18" fill="#0F172A" font-size="11" font-weight="600" class="text-inter" text-anchor="middle">React</text>
+          </g>
+          <g transform="translate(78,0)" class="pill-hover">
+            <rect width="80" height="28" rx="14" fill="#FFFFFF" stroke="rgba(15,23,42, 0.08)" stroke-width="1" />
+            <text x="40" y="18" fill="#0F172A" font-size="11" font-weight="600" class="text-inter" text-anchor="middle">Next.js</text>
+          </g>
+          <g transform="translate(166,0)" class="pill-hover">
+            <rect width="100" height="28" rx="14" fill="#FFFFFF" stroke="rgba(37, 99, 235, 0.15)" stroke-width="1" />
+            <text x="50" y="18" fill="#0F172A" font-size="11" font-weight="600" class="text-inter" text-anchor="middle">TypeScript</text>
+          </g>
+          <g transform="translate(274,0)" class="pill-hover">
+            <rect width="80" height="28" rx="14" fill="#FFFFFF" stroke="rgba(16, 185, 129, 0.15)" stroke-width="1" />
+            <text x="40" y="18" fill="#0F172A" font-size="11" font-weight="600" class="text-inter" text-anchor="middle">Python</text>
+          </g>
+          <g transform="translate(362,0)" class="pill-hover">
+            <rect width="80" height="28" rx="14" fill="#FFFFFF" stroke="rgba(15,23,42,0.08)" stroke-width="1" />
+            <text x="40" y="18" fill="#0F172A" font-size="11" font-weight="600" class="text-inter" text-anchor="middle">Node.js</text>
+          </g>
+        </g>
+
+        <g transform="translate(0, 52)">
+          <g transform="translate(0,0)" class="pill-hover">
+            <rect width="85" height="28" rx="14" fill="#FFFFFF" stroke="rgba(15,23,42, 0.08)" stroke-width="1" />
+            <text x="42.5" y="18" fill="#0F172A" font-size="11" font-weight="600" class="text-inter" text-anchor="middle">Tailwind</text>
+          </g>
+          <g transform="translate(93,0)" class="pill-hover">
+            <rect width="80" height="28" rx="14" fill="#FFFFFF" stroke="rgba(37, 99, 235, 0.15)" stroke-width="1" />
+            <text x="40" y="18" fill="#0F172A" font-size="11" font-weight="600" class="text-inter" text-anchor="middle">Docker</text>
+          </g>
+          <g transform="translate(181,0)" class="pill-hover">
+            <rect width="100" height="28" rx="14" fill="#FFFFFF" stroke="rgba(16, 185, 129, 0.15)" stroke-width="1" />
+            <text x="50" y="18" fill="#0F172A" font-size="11" font-weight="600" class="text-inter" text-anchor="middle">PostgreSQL</text>
+          </g>
+          <g transform="translate(289,0)" class="pill-hover">
+            <rect width="65" height="28" rx="14" fill="#FFFFFF" stroke="rgba(15,23,42, 0.08)" stroke-width="1" />
+            <text x="32.5" y="18" fill="#0F172A" font-size="11" font-weight="600" class="text-inter" text-anchor="middle">Git</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- Divider line -->
+      <line x1="0" y1="350" x2="580" y2="350" stroke="rgba(15,23,42,0.08)" stroke-width="1" />
+
+      <!-- Footer / Social Media Links -->
+      <g transform="translate(0, 375)">
+        <text x="0" y="15" fill="#475569" class="text-mono" font-size="12">connect.sh --active</text>
+        
+        <g transform="translate(430, -3)">
+          <g class="icon-hover" fill="#475569" transform="translate(0,0)">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z" transform="scale(1.1)" />
+          </g>
+          <g class="icon-hover" fill="#475569" transform="translate(40,0)">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" transform="scale(1.05)" />
+          </g>
+          <g class="icon-hover" fill="#475569" transform="translate(80,0)">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" transform="scale(1.05)" />
+          </g>
+          <g class="icon-hover" fill="#475569" transform="translate(120,0)">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" transform="scale(1.05)" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
